@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
     private inner class RecyclerListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
     }
     /*
     private inner class RecyclerlistAdapter(private val _listdata: MutableList<MutableMap<String,Any>>)

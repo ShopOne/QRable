@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         val list : MutableList<MutableMap<String,String>> = mutableListOf()
         val item = mutableMapOf("name" to "you", "price" to "we")
         list.add(item)
+
         val layout = LinearLayoutManager(applicationContext)
 
         val adapter = RecyclerListAdapter(list)

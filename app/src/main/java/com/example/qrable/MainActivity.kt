@@ -2,12 +2,15 @@ package com.example.qrable
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.shop_cell.*
+import kotlinx.android.synthetic.main.shop_cell.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         val list : MutableList<MutableMap<String,String>> = mutableListOf()
         val item = mutableMapOf("name" to "you", "price" to "we")
         list.add(item)
-
         val layout = LinearLayoutManager(applicationContext)
 
         val adapter = RecyclerListAdapter(list)
@@ -40,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: RecyclerListViewHolder, position: Int) {
+            val item = _listData[position]
+            val menuName = item["name"] as String
+         //   val menuPrice = item["price"] as String
+            val view = holder.itemView
+            view.sample_text.text = menuName
         }
 
         override fun getItemCount(): Int {

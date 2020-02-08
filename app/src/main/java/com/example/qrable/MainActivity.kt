@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: RecyclerListViewHolder, position: Int) {
             val item = _listData[position]
             val menuName = item["name"] as String
+
          //   val menuPrice = item["price"] as String
             val view = holder.itemView
             view.sample_text.text = menuName

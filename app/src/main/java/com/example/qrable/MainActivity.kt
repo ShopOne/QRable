@@ -14,46 +14,22 @@ import kotlinx.android.synthetic.main.shop_cell.view.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val list : MutableList<MutableMap<String,String>> = mutableListOf()
-        val item = mutableMapOf("name" to "you", "price" to "we")
-        list.add(item)
-        val layout = LinearLayoutManager(applicationContext)
-
-        val adapter = RecyclerListAdapter(list)
-        lvMenu.setHasFixedSize(true)
-        lvMenu.adapter = adapter
-        lvMenu.layoutManager = layout
-    }
-    private inner class RecyclerListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
-    }
-    private inner class RecyclerListAdapter(private val _listData: MutableList<MutableMap<String,String>>)
-        : RecyclerView.Adapter<RecyclerListViewHolder>(){
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerListViewHolder {
-
-            val inflater = LayoutInflater.from(applicationContext)
-            val view = inflater.inflate(R.layout.shop_cell,parent,false)
-            return RecyclerListViewHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: RecyclerListViewHolder, position: Int) {
-            val item = _listData[position]
-            val menuName = item["name"] as String
-
-         //   val menuPrice = item["price"] as String
-            val view = holder.itemView
-            view.sample_text.text = menuName
-        }
-
-        override fun getItemCount(): Int {
-            return _listData.size
+        viewManager = LinearLayoutManager(this)
+        recyclerView = lvMenu.apply{
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
         }
     }
-
-
+}
+public class RowData{
+    private var name = ""
+    private var imageId = 0
 }

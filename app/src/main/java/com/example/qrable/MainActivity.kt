@@ -20,16 +20,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val list = listOf(
+            RowData("hoge",R.drawable.ic_launcher_background),
+            RowData("fuga",R.drawable.ic_launcher_foreground)
+        )
+        recyclerView = lvMenu
         viewManager = LinearLayoutManager(this)
-        recyclerView = lvMenu.apply{
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
+        viewAdapter = MyRecyclerViewAdapter(list)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = viewManager
+        recyclerView.adapter = viewAdapter
     }
 }
-public class RowData{
-    private var name = ""
-    private var imageId = 0
+public class RowData(val name: String,val imageId: Int){
 }

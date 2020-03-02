@@ -7,8 +7,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "shop_table")
-data class Shop(
+data class ShopEntity(
     @PrimaryKey var id:Int,
     var shopName: String?,
-    var imageId: Int
+    var imageId: Int,
+    var usableCard: List<CardInfo>
 )

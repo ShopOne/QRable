@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             RowData("hoge",R.drawable.ic_launcher_background),
             RowData("fuga",R.drawable.ic_launcher_foreground)
         )
+        setSupportActionBar(toolBar)
         recyclerView = lvMenu
         viewManager = LinearLayoutManager(this)
         viewAdapter = MyRecyclerViewAdapter(list)
@@ -32,5 +33,5 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = viewAdapter
     }
 }
-public class RowData(val name: String,val imageId: Int){
+class RowData(val name: String,val imageId: Int){
 }

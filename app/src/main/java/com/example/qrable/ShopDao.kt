@@ -6,9 +6,9 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface MyDao {
+interface ShopDao {
     @Query("SELECT * from shop_table")
-    fun getAllShop() : List<Shop>
+    fun getAllShop() : List<ShopEntity>
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertShop(vararg shops:Shop)
+    fun insertShop(vararg shops:ShopEntity)
 }

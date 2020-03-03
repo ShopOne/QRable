@@ -10,6 +10,5 @@ import androidx.room.PrimaryKey
 data class ShopEntity(
     @PrimaryKey var id:Int,
     var shopName: String?,
-    var imageId: Int,
-    var usableCard: List<CardInfo>
+    var imageId: Int
 )

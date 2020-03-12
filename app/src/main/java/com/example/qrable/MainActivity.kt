@@ -1,5 +1,6 @@
 package com.example.qrable
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,10 +28,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolBar)
         recyclerView = lvMenu
         viewManager = LinearLayoutManager(this)
-        viewAdapter = MyRecyclerViewAdapter(list)
+        viewAdapter = MyRecyclerViewAdapter(list,OnCellClick())
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
+    }
+    inner class OnCellClick: View.OnClickListener{
+        override fun onClick(v: View?) {
+            val intent = Intent(application,LauncherActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 class RowData(val name: String,val imageId: Int){

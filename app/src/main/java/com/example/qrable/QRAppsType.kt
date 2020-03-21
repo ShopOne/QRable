@@ -1,6 +1,6 @@
 package com.example.qrable
 
-enum class QRAppsName (val appName:String){
+enum class QRAppsType (val appName:String){
     LINE_PAY("LINE Pay"),
     PAY_PAY("PayPay"),
     RAKUTEN_PAY("Rakuten Pay"),
